@@ -15,3 +15,11 @@
 .ractive-slider-pagination {
     text-align: center;
 }
+
+.ractive-slider-pagination a {
+    margin: 0 6px;
+}
+
+.ractive-slider-pagination .current {
+    color: red;
+}

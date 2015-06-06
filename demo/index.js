@@ -8,6 +8,6 @@ define(['jquery', 'ractive', '../src/slider'], function($, Ractive, Slider) {
     })
 
     app.on('addSlide', function() {
-        app.get('items').push(4)
+        app.get('items').push(app.get('items').length + 1)
     })
 })

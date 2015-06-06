@@ -1,4 +1,4 @@
-define(['jquery', 'ractive'], function($, Ractive) {
+define(['ractive'], function(Ractive) {
     function oninit() {
         var app = this
         var startX

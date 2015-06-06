@@ -18,6 +18,8 @@
 <div class="ractive-slider-pagination"
      style="width: {{width}}px;">
   {{#items:i}}
-  <a href="javascript:;" on-click="setOffset:{{i}}">x</a>
+  <a href="javascript:;"
+     class="{{i === offset * -1 ? 'current' : ''}}"
+     on-click="setOffset:{{i}}">x</a>
   {{/items}}
 </div>
