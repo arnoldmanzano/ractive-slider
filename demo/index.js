@@ -8,6 +8,12 @@ define(['jquery', 'ractive', '../src/slider'], function($, Ractive, Slider) {
     })
 
     app.on('addSlide', function() {
-        app.get('items').push(app.get('items').length + 1)
+        var slider = app.findComponent('slider')
+        slider.appendSlide(app.get('items').length + 1)
+    })
+
+    app.on('removeSlide', function() {
+        var slider = app.findComponent('slider')
+        slider.removeSlide(app.get('index'))
     })
 })

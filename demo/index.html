@@ -16,7 +16,9 @@
 </div>
 <script id="template" type="text">
   <slider width="400" height="300" items="{{items}}" />
-  <button on-click="addSlide">Add a slide</button>
+  <button on-click="addSlide">Add</button> <br/>
+  <input type="text" value="{{index}}"/>
+  <button on-click="removeSlide">Remove</button>
 </script>
 <script src="../lib/require.js"></script>
 <script>

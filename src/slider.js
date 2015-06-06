@@ -2,6 +2,7 @@ define(['ractive'], function(Ractive) {
     function oninit() {
         var app = this
         var startX
+        // 标志位，是否命中滑动监控
         var monitoring = false
 
         app.on('onMouseDown', function(e) {
@@ -47,7 +48,9 @@ define(['ractive'], function(Ractive) {
         data: {
             // 偏移量，总长度为items的长度
             offset: 0,
+            // slide对象
             items: function() {return []},
+            // 鼠标滑动相对初始位置的变化距离
             mouseMoveX: 0,
             // 计算container的left
             getContainerLeft: function() {
@@ -57,6 +60,29 @@ define(['ractive'], function(Ractive) {
         },
         oninit: oninit
     })
+
+    widget.prototype.appendSlide = function(item) {
+        this.get('items').push(item)
+    }
+
+    // 移除任意的slide，如果当前偏移处于最后的位置需要更新offset
+    widget.prototype.removeSlide = function(index) {
+        index = parseInt(index)
+
+        var items = this.get('items')
+        if (index < 0 && index >= items.length) return
+
+        // 最后一个元素设置offset为0，避免append出现文体
+        if (items.length === 1) {
+            this.set('offset', 0)
+        } else {
+            if (index === items.length - 1) {
+                this.set('offset', 2 - items.length)
+            }
+        }
+
+        items.splice(index, 1)
+    }
 
     Ractive.components.slider = widget
 
