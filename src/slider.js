@@ -72,12 +72,18 @@ define(['ractive'], function(Ractive) {
         var items = this.get('items')
         if (index < 0 && index >= items.length) return
 
+        var offset = this.get('offset')
         // 最后一个元素设置offset为0，避免append出现文体
         if (items.length === 1) {
             this.set('offset', 0)
         } else {
-            if (index === items.length - 1) {
-                this.set('offset', 2 - items.length)
+            /**
+             * 需要处理offset（+1）的两种情况
+             * 1）当前展示项目为尾部元素
+             * 2）删除的项目在当前元素之前
+             */
+            if (offset === 1 - items.length || index < -1 * offset) {
+                this.add('offset')
             }
         }
 
