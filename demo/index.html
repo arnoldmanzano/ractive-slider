@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="../src/ractive-slider.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+<div id="el">
+
+</div>
+<script id="template" type="text">
+  <slider width="400" height="300" items="{{items}}" />
+  <button on-click="addSlide">Add a slide</button>
+</script>
+<script src="../lib/require.js"></script>
+<script>
+  require.config({
+    baseUrl: '../lib'
+  })
+
+  require(['jquery'], function($) {
+    $.get('../src/template.html').then(function(html) {
+      window.TEMPLATE = html
+
+      require(['../demo/index'])
+    })
+  })
+</script>
+</body>
+</html>

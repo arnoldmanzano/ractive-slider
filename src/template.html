@@ -1,0 +1,23 @@
+<div class="ractive-slider-wrapper"
+     style="width: {{width}}px; height: {{height}}px">
+  <div class="ractive-slider-container"
+       style="width: {{width * items.length}}px; height: {{height}}px;
+        left: {{getContainerLeft()}}px"
+       on-mousedown="onMouseDown"
+       on-mouseup="onMouseUp"
+       on-mousemove="onMouseMove">
+    {{#items:i}}
+    <div class="ractive-slider-item"
+         style="width: {{width}}px; height: {{height}}px;">
+      {{i}}
+    </div>
+    {{/items}}
+  </div>
+</div>
+
+<div class="ractive-slider-pagination"
+     style="width: {{width}}px;">
+  {{#items:i}}
+  <a href="javascript:;" on-click="setOffset:{{i}}">x</a>
+  {{/items}}
+</div>

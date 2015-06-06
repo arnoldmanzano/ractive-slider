@@ -1,0 +1,17 @@
+.ractive-slider-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.ractive-slider-container {
+    position: absolute;
+    left: 0;
+}
+
+.ractive-slider-item {
+    display: inline-block;
+}
+
+.ractive-slider-pagination {
+    text-align: center;
+}
